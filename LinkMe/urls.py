@@ -8,9 +8,9 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     # index
-    url(r'^$', 'LinkMe.views.index', name='index'),
+    url(r'^$', 'linkme_app.views.index', name='index'),
     # register link
-    url(r'^register', 'LinkMe.views.register', name='register' ),
+    url(r'^register', 'linkme_app.views.register', name='register' ),
     # source link
-    url(r'^([0-9]+)', 'LinkMe.views.redirect', name='redirect' ),
+    url(r'^(?P<source>\w)', 'linkme_app.views.redirect', name='redirect' ),
 )
