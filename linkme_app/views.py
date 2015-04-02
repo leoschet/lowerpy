@@ -4,7 +4,7 @@ from django.shortcuts import render
 def index(request):
 	return render(request, "index.html", locals())
 
-def linking(request):
+def register(request):
 	if request.method == 'POST' and request.POST.__contains__('source') and request.POST.__contains__('target')
 		sourceUrl = request.POST.get('source')
 		target = request.POST.get('target')
@@ -26,14 +26,14 @@ def linking(request):
 	return redirect(backToIndex_Erro)
 
 def backToIndex(request):
-	bool_back = "true"
+	success = "true"
 	return redirect(index)
 
 def backToIndex_Erro(request):
-	bool_back = "false"
+	success = "false"
 	return redirect(index)
 
-def redirecting(request, id):
+def redirect(request, id):
 	# get all links
 	links = Link.objects.all()
 	# get source options
@@ -47,6 +47,3 @@ def redirecting(request, id):
 			return render(request, link.urlTarget, locals())
 
 	return redirect()
-
-
-# Create your views here.
