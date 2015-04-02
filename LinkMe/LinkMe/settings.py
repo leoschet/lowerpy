@@ -1,5 +1,5 @@
 """
-Django settings for linkMeApp project.
+Django settings for LinkMe project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u#*m_e*9uok)@anau^dbn5rv)csg48q741%ajmx#5$+@ap%q4)'
+SECRET_KEY = 'g+18d#y7!@!*+b&sspl)fyyj#b7n9p838oc$%5x78s^h@6^3te'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'linkMeApp.urls'
+ROOT_URLCONF = 'LinkMe.urls'
 
-WSGI_APPLICATION = 'linkMeApp.wsgi.application'
+WSGI_APPLICATION = 'LinkMe.wsgi.application'
 
 
 # Database
