@@ -1,20 +1,21 @@
+from django.views.generic.base import RedirectView
+from django.http import *
 from django.shortcuts import render
+from models import *
+import urlparse
 
 
 def index(request):
 	return render(request, "index.html", locals())
 
 def register(request):
-	if request.method == 'POST' and request.POST.__contains__('source') and request.POST.__contains__('target')
-		sourceUrl = request.POST.get('source')
-		target = request.POST.get('target')
+	if request.method == 'POST' and request.POST.__contains__('source') and request.POST.__contains__('target'):
+		source = request.POST.get('source')
+		targetUrl = request.POST.get('target')
 
-		# pega todos os links
-		# links = Link.objects.all()
+		target = Target()
 
-		source = Source()
-
-		source.url = sourceUrl
+		target.url = Url
 
 		link = Link()
 
@@ -33,17 +34,12 @@ def backToIndex_Erro(request):
 	success = "false"
 	return redirect(index)
 
-def redirect(request, id):
-	# get all links
-	links = Link.objects.all()
-	# get source options
-	options = Source.objects.all()
-	# current url
-	currentUrl = request.get_full_path()
+def redirect(request, source):
+	# get link object
+	link = Link.objects.get(pk = source)
+
+	# get path and generate url
+	target = link.target
 
 	# redirect
-	for link in links:
-		if link.source.url == currentUrl
-			return render(request, link.urlTarget, locals())
-
-	return redirect()
+	return render(request, "redirect.html", locals())
