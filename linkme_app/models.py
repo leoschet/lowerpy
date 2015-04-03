@@ -8,7 +8,7 @@ class Target (models.Model):
 
 class Link (models.Model):
 	# id =  models.AutoField(primary_key=True)
-	source = models.CharField(max_length=30)
+	source = models.CharField(max_length=30, primary_key=True)
 	target = models.ForeignKey(Target)
 
 	def __unicode__(self):

@@ -13,6 +13,9 @@ def register(request):
 		source = request.POST.get('source')
 		targetUrl = request.POST.get('target')
 
+		# pega todos os links
+		# links = Link.objects.all()
+
 		target = Target()
 
 		target.url = Url
@@ -36,7 +39,7 @@ def backToIndex_Erro(request):
 
 def redirect(request, source):
 	# get link object
-	link = Link.objects.get(pk = source)
+	link = Link.objects.get(source = source)
 
 	# get path and generate url
 	target = link.target

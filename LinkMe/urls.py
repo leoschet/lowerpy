@@ -10,7 +10,8 @@ urlpatterns = patterns('',
     # index
     url(r'^$', 'linkme_app.views.index', name='index'),
     # register link
-    url(r'^register', 'linkme_app.views.register', name='register' ),
+    url(r'^register', 'linkme_app.views.register', name='register'),
     # source link
-    url(r'^(?P<source>\w)', 'linkme_app.views.redirect', name='redirect' ),
+	url(r'^go/(?P<source>\w+)', 'linkme_app.views.redirect', name='redirect' ),
+
 )
