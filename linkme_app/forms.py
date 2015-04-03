@@ -8,7 +8,7 @@ class LinkForm(forms.Form):
 	source.widget.attrs['placeholder'] = '<base_dir>'
 	source.widget.attrs['id'] = 'source'
 
-	target = forms.CharField(max_length = 30)
+	target = forms.CharField(max_length = 300)
 	target.widget.attrs['class'] = 'input-container'
 	target.widget.attrs['style'] = 'width: 74px;'
 	target.widget.attrs['placeholder'] = '<target_url>'

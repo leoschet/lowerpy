@@ -1,7 +1,7 @@
 from django.db import models
 
 class Target (models.Model):
-	url = models.CharField(max_length=30)
+	url = models.CharField(max_length=300)
 
 	def __unicode__(self):
 		return self.url
