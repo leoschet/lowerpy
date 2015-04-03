@@ -1,48 +1,77 @@
 from django.views.generic.base import RedirectView
 from django.http import *
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from models import *
-import urlparse
-
+from linkme_app.forms import *
 
 def index(request):
+	print('index')
+	msg = 'Lowerpy'
+	form = LinkForm()
 	return render(request, "index.html", locals())
 
 def register(request):
+	print('register')
 	if request.method == 'POST' and request.POST.__contains__('source') and request.POST.__contains__('target'):
+		print('register if')
 		source = request.POST.get('source')
 		targetUrl = request.POST.get('target')
+		target = None
+		try:
+			print('register if try')
+			target = get_object_or_404(Target, url=targetUrl)
+			#target ja criado
 
-		# pega todos os links
-		# links = Link.objects.all()
+		except Http404:
+			print('register if try-except')
+			target = Target()
+			target.url = targetUrl
+			target.save()
 
-		target = Target()
+		try:
+			print('register if try2')
+			link = get_object_or_404(Link, source=source)
+			return backToIndex_Erro(request)
+			
 
-		target.url = Url
+		except Http404:
+			print('register if try-except2')
+			link = Link()
+			link.source = source
+			link.target = target
+			link.save()
 
-		link = Link()
+		return backToIndex(request)
 
-		link.source = source
-		link.target = target
-		link.save()
-
-		return redirect(backToIndex)
-	return redirect(backToIndex_Erro)
+	else:
+		print('register else')
+		return backToIndex_NoField(request)
 
 def backToIndex(request):
-	success = "true"
-	return redirect(index)
+	msg = "true"
+	form = LinkForm()
+	return render(request, "index.html", locals())
 
 def backToIndex_Erro(request):
-	success = "false"
-	return redirect(index)
+	msg = "false"
+	form = LinkForm()
+	return render(request, "index.html", locals())
+	
+def backToIndex_NoField(request):
+	msg = "noField"
+	form = LinkForm()
+	return render(request, "index.html", locals())
 
-def redirect(request, source):
-	# get link object
-	link = Link.objects.get(source = source)
+def backToIndex_Unregistered(request):
+	msg = 'urlNotRegistered'
+	form = LinkForm()
+	return render(request, "index.html", locals())
 
-	# get path and generate url
-	target = link.target
+def redirectTo(request, source):
+	print('redirectTo')
+	try:
+		link = get_object_or_404(Link, source=source)
+		return render(request, "redirect.html", locals())
 
-	# redirect
-	return render(request, "redirect.html", locals())
+	except Http404:
+		return backToIndex_Unregistered(request)
