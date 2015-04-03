@@ -1,0 +1,62 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
+ 
+ * {font-family: 'Roboto'; box-sizing: border-box;}
+ 
+ body{
+ 	padding-top: 5%;
+ 	text-align: center;
+ 	color: #823aa0;
+ }
+
+ .container {
+ 	margin-top: 3% !important;
+	padding-top: 30px;
+	padding-bottom: 30px;
+ 	width: 500px;
+ 	height: 200px;
+ 	border-radius: 5px;
+ 	background-color: white;
+ }
+
+ .drop-shadow {
+ 	-webkit-box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.26);
+	-moz-box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.26);
+	box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.26);
+ }
+
+ .center {
+ 	margin: auto;
+ }
+
+ .input-container{
+ 	border-width: 0px;
+ }
+
+ .onclick{
+ 	border-width: 0px;
+	
+	color: #823aa0;
+
+	-webkit-box-shadow: 0px 1px 0px 0px rgba(0,115,255,1);
+	-moz-box-shadow: 0px 1px 0px 0px rgba(0,115,255,1);
+	box-shadow: 0px 1px 0px 0px rgba(0,115,255,1);
+ }
+
+ textarea:focus, input:focus{
+	outline: none;
+ }
+
+ .form-group{
+ 	text-align: left;
+ }
+ 
+ .btn {
+	width: 100%;
+ 	background-color: #823aa0;
+ 	color: white;
+ }
+
+ .btn:hover{
+ 	background-color: #531F69;
+	color: #F5E8FA;	
+ }

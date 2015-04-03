@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lowerpy</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body id="index">
+	<h1>{{ msg }}</h1>
+	<div class="container drop-shadow center">
+		<form method="POST" action="/register" enctype="multipart/form-data">
+			{%csrf_token%}
+
+			{% if form.errors %}
+			    <div class="alert alert-error">
+			        <ul>
+			            {% for error in form.non_field_errors %}
+			                <li>{{ error }}</li>
+			            {% endfor %}
+			        </ul>
+			    </div>
+			{% endif %}
+
+			<div class="form-group">
+				<label for="source">sourceUrl = "http://127.0.0.1:8000/"  +  </label>
+				{{ form.source }}
+				<label for="source">;</label>
+				<p>{{ form.source.errors }}</p>
+				
+				<label for="target">targetUrl = </label>
+				{{ form.target }}
+				<label for="target">;</label>
+				<p>{{ form.target.errors }}</p>
+
+				<label>lowerpy(source, target);</label>
+				<p></p>
+
+				<input type="submit" class="btn" value="run code." />
+			</div>
+			{%csrf_token%}
+		</form>
+	</div>
+</body>
+<script type="text/javascript" src="../static/js/index.js"></script>
+
+</html>
