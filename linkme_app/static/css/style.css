@@ -2,10 +2,17 @@
  
  * {font-family: 'Roboto'; box-sizing: border-box;}
  
+ input::-webkit-input-placeholder{ color: #7a7a7a; }
+
  body{
  	padding-top: 5%;
  	text-align: center;
- 	color: #823aa0;
+ 	color: white;
+ 	background-color: #171717;
+ }
+
+ label{
+ 	font-weight: normal;
  }
 
  .container {
@@ -15,7 +22,7 @@
  	width: 500px;
  	height: 200px;
  	border-radius: 5px;
- 	background-color: white;
+ 	background-color: #242424;
  }
 
  .drop-shadow {
@@ -35,11 +42,11 @@
  .onclick{
  	border-width: 0px;
 	
-	color: #823aa0;
+	color: #F5D058;
 
-	-webkit-box-shadow: 0px 1px 0px 0px rgba(0,115,255,1);
-	-moz-box-shadow: 0px 1px 0px 0px rgba(0,115,255,1);
-	box-shadow: 0px 1px 0px 0px rgba(0,115,255,1);
+	-webkit-box-shadow: 0px 1px 0px 0px #F5D058;
+	-moz-box-shadow: 0px 1px 0px 0px #F5D058;
+	box-shadow: 0px 1px 0px 0px #F5D058;
  }
 
  textarea:focus, input:focus{
@@ -52,11 +59,13 @@
  
  .btn {
 	width: 100%;
- 	background-color: #823aa0;
+ 	background-color: #121212;
  	color: white;
  }
 
  .btn:hover{
- 	background-color: #531F69;
-	color: #F5E8FA;	
+ 	background-color: #0f0f0f;
+	color: #919191;	
  }
+
+

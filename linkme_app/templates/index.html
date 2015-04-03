@@ -8,20 +8,20 @@
 
 </head>
 <body id="index">
-	<h1>Lowerpy()</h1>
+	<h1>lowerPy()</h1>
 	{% if msg == 'true' %}
-		<h4 style="margin: 0px;">Sua URL é: http://127.0.0.1:8000/{{ source }}</h4>
+		<h4 style="margin: 0px; color: white;"><label style="color: #AD0E3B;">Output:</label> Sua URL é: http://127.0.0.1:8000/{{ source }}</h4>
 	{% elif msg == 'false' %}
-		<h4 style="margin: 0px;">URL já foi cadastrada no sistema.</h4>
+		<h4 style="margin: 0px; color: white;"><label style="color: #AD0E3B;">Output: </label> URL já foi cadastrada no sistema.</h4>
 	{% elif msg == 'noField' %}
-		<h4 style="margin: 0px;">Preencha os campos.</h4>
+		<h4 style="margin: 0px; color: white;"><label style="color: #AD0E3B;">Output: </label> Preencha os campos.</h4>
 	{% elif msg == 'urlNotRegistered' %}
-		<h4 style="margin: 0px;">A URL digitada não está cadastrada no sistema.</h4>
+		<h4 style="margin: 0px; color: white;"><label style="color: #AD0E3B;">Output: </label> A URL digitada não está cadastrada no sistema.</h4>
 	{% elif msg == 'welcome' %}
-		<h4 style="margin: 0px;">Bem-vindo.</h4>
+		<h4 style="margin: 0px; color: white;">Bem-vindo.</h4>
 	{% endif %}
 	<div class="container drop-shadow center">
-		<form method="POST" action="/register" enctype="multipart/form-data">
+		<form method="POST" action="default-app-url/register" enctype="multipart/form-data">
 			{%csrf_token%}
 
 			{% if form.errors %}
@@ -35,17 +35,15 @@
 			{% endif %}
 
 			<div class="form-group">
-				<label for="source">sourceUrl = "http://127.0.0.1:8000/"  +  </label>
+				<label for="source" style="color: #AD0E3B;"><label for="source" style="color: white;">sourceUrl</label> = <label for="source" style="color: #F5D058;">"http://127.0.0.1:8000/"</label>  +  </label>
 				{{ form.source }}
-				<label for="source">;</label>
 				<p>{{ form.source.errors }}</p>
 				
-				<label for="target">targetUrl = </label>
+				<label for="target" style="color: #AD0E3B;"><label for="target" style="color: white;">targetUrl</label> = </label>
 				{{ form.target }}
-				<label for="target">;</label>
 				<p>{{ form.target.errors }}</p>
 
-				<label>lowerpy(source, target);</label>
+				<label style="color: orange;"><label style="color: #AD0E3B;">return</label> <label style="color: white;">lowerpy(</label>source <label style="color: white;">,</label> target<label style="color: white;">)</label></label>
 				<p></p>
 
 				<input type="submit" class="btn" value="run code." />
