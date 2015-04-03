@@ -2,6 +2,7 @@ from django.views.generic.base import RedirectView
 from django.http import *
 from django.shortcuts import render, get_object_or_404, redirect
 from models import *
+from entitiesOrganizer import *
 from linkme_app.forms import *
 
 def index(request):
@@ -16,7 +17,8 @@ def register(request):
 		print('register if')
 		source = request.POST.get('source')
 		targetUrl = request.POST.get('target')
-		target = None
+		targetUrl = get_valid_url(targetUrl)
+		print(targetUrl)
 		try:
 			print('register if try')
 			target = get_object_or_404(Target, url=targetUrl)
