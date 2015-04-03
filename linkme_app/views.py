@@ -6,7 +6,7 @@ from linkme_app.forms import *
 
 def index(request):
 	print('index')
-	msg = 'Lowerpy'
+	msg = 'welcome'
 	form = LinkForm()
 	return render(request, "index.html", locals())
 
@@ -41,14 +41,15 @@ def register(request):
 			link.target = target
 			link.save()
 
-		return backToIndex(request)
+		return backToIndex(request, source)
 
 	else:
 		print('register else')
 		return backToIndex_NoField(request)
 
-def backToIndex(request):
+def backToIndex(request, source):
 	msg = "true"
+	source = source
 	form = LinkForm()
 	return render(request, "index.html", locals())
 
@@ -71,7 +72,8 @@ def redirectTo(request, source):
 	print('redirectTo')
 	try:
 		link = get_object_or_404(Link, source=source)
-		return render(request, "redirect.html", locals())
+		return redirect('http://'+link.target.url)
 
 	except Http404:
+		print('nao achou')
 		return backToIndex_Unregistered(request)
