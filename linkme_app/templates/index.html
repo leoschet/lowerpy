@@ -8,7 +8,18 @@
 
 </head>
 <body id="index">
-	<h1>{{ msg }}</h1>
+	<h1>Lowerpy()</h1>
+	{% if msg == 'true' %}
+		<h4 style="margin: 0px;">Sua URL é: http://127.0.0.1:8000/{{ source }}</h4>
+	{% elif msg == 'false' %}
+		<h4 style="margin: 0px;">URL já foi cadastrada no sistema.</h4>
+	{% elif msg == 'noField' %}
+		<h4 style="margin: 0px;">Preencha os campos.</h4>
+	{% elif msg == 'urlNotRegistered' %}
+		<h4 style="margin: 0px;">A URL digitada não está cadastrada no sistema.</h4>
+	{% elif msg == 'welcome' %}
+		<h4 style="margin: 0px;">Bem-vindo.</h4>
+	{% endif %}
 	<div class="container drop-shadow center">
 		<form method="POST" action="/register" enctype="multipart/form-data">
 			{%csrf_token%}
